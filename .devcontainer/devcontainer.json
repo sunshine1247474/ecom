@@ -1,0 +1,35 @@
+{
+  "name": "Resale Scanner",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "postCreateCommand": "pip install -r requirements.txt",
+  "forwardPorts": [8501],
+  "portsAttributes": {
+    "8501": {
+      "label": "Streamlit Dashboard",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "charliermarsh.ruff"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "secrets": {
+    "EBAY_APP_ID": { "description": "eBay Developer App ID (Client ID)" },
+    "EBAY_CERT_ID": { "description": "eBay Developer Cert ID (Client Secret)" },
+    "EBAY_DEV_ID": { "description": "eBay Developer Dev ID" },
+    "EBAY_USER_TOKEN": { "description": "eBay OAuth User Token (for Sell APIs)" },
+    "OPENAI_API_KEY": { "description": "OpenAI API Key for product analysis" },
+    "SERPAPI_KEY": { "description": "SerpAPI key for Google Shopping search" },
+    "RAINFOREST_API_KEY": { "description": "Rainforest API key for Amazon product data" }
+  }
+}
